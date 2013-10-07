@@ -1,0 +1,12 @@
+import socket
+
+s=socket.socket()
+host="localhost"
+port=8010
+msg="hello"
+s.bind((host,port))
+s.listen(3)
+while True:
+	client,addr=s.accept()
+	client.send(client.recv(1024))
+	client.close()
